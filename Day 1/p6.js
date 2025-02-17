@@ -1,7 +1,7 @@
 const fs  = require('fs');
 
 const append = ()=>{
-    const data = "Hello, I am appending to a file ";
+    const data = "\n Hello, I am appending to a file ";
     fs.appendFile("./data.txt",data,(err)=>{
         if(err) 
             console.log(err);
