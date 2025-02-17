@@ -1,8 +1,13 @@
 const fs = require('fs');
 
 const write = ()=>{
-    const data = "Hello, I am writing to a file using Node.js";
-    fs.writeFileSync("./data.txt",data);
+    const data = "Hello, I am writing to a file ";
+    fs.writeFile("./data.txt",data,(err)=>{
+        if(err) 
+            console.log(err);
+         else console.log("Data written successfully");
+        
+    });
 };
 
 console.log("I am before writing");
