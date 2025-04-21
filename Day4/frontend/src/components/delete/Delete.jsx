@@ -15,7 +15,7 @@ const Delete = () => {
   const handleView = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:7001/users");
+      const response = await axios.get("https://backend-fsd-it-a-2.onrender.com/users");
       setUsers(response.data);
       setError(null);
     } catch (err) {
@@ -29,8 +29,8 @@ const Delete = () => {
   const handleDelete = async (userId) => {
     try {
       setDeleting(true);
-      await axios.delete(`http://localhost:7001/users/${userId}`);
-      // Update the users list by removing the deleted user
+      await axios.delete(`https://backend-fsd-it-a-2.onrender.com/users/${userId}`);
+      
       setUsers(users.filter(user => user.id !== userId));
       setDeleteConfirm(null);
     } catch (err) {

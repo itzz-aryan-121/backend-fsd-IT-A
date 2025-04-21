@@ -13,7 +13,7 @@ const View = () => {
   const handleView = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:7001/users");
+      const response = await axios.get("https://backend-fsd-it-a-2.onrender.com/users");
       setUsers(response.data);
       setError(null);
     } catch (err) {

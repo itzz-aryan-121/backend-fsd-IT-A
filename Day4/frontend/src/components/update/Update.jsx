@@ -13,11 +13,10 @@ const Update = () => {
     age: ""
   });
 
-  // Fetch all users on component mount
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:7001/users");
+        const response = await axios.get("https://backend-fsd-it-a-2.onrender.com/users");
         setUsers(response.data);
       } catch (error) {
         console.error("Error fetching users:", error);
@@ -33,8 +32,7 @@ const Update = () => {
       ...formData,
       [name]: value
     });
-
-    // Filter users for ID field suggestions
+    
     if (name === "id") {
       const filtered = users.filter(user => 
         user.id.toString().includes(value) || 
@@ -71,14 +69,14 @@ const Update = () => {
       setStatus({ message: "", type: "" });
       
       const userData = { name, age: parseInt(age) };
-      await axios.put(`http://localhost:7001/users/${id}`, userData);
+      await axios.put(`https://backend-fsd-it-a-2.onrender.com/users/${id}`, userData);
       
       setStatus({
         message: "User updated successfully",
         type: "success"
       });
       
-      // Reset form
+      
       setFormData({ id: "", name: "", age: "" });
     } catch (error) {
       console.error("Error updating user:", error);
